@@ -7,7 +7,7 @@ class Game
     @maxscore = maxscore || 100
   end
 
-  def roll
+  def die_roll
     rand(1..6)
   end
 end
@@ -21,12 +21,15 @@ class Pig < Game
   end
 
   def one_roll
+    roll = die_roll
     unless roll == 1
       @temp_score += roll
+      puts "You rolled a #{roll}. 
+Your score for the turn is #{@temp_score}"
     else
       @temp_score = 0
+      puts "Sorry! You rolled a 1 and lost your points!"
     end
-    
     @temp_score
   end
 
