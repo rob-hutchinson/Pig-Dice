@@ -13,4 +13,13 @@ class PigGameTests < MiniTest::Test
     assert_equal g.maxscore, 100
     assert_equal p.maxscore, 100
   end
+
+  def test_games_can_roll_dice
+    g = Game.new 
+    p = Pig.new 
+
+    assert (1..6).include?(g.roll)
+    assert (1..6).include?(p.roll)
+  end
+
 end
