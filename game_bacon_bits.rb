@@ -1,7 +1,7 @@
 require 'pry'
 
 class Game
-  attr_reader :maxscore, :scores, :winner
+  attr_reader :maxscore, :scores
 
   def initialize maxscore=nil, players=2
     @maxscore = maxscore || 10
@@ -14,16 +14,18 @@ class Game
   end
 
   def winner
-   (0...@scores.length).map{|x| if @scores[x]>100
-    @winner = true end}
+      (0...@scores.length).map{|x| 
+      if @scores[x]>=@maxscore
+        @winner = true 
+      end }
+    @winner
   end
-
 end
 
 class Pig < Game
   attr_reader :temp_score, :roll
 
-  def initialize
+  def initialize maxscore=nil, players=2
     super
     @temp_score = 0
     

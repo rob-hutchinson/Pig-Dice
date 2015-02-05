@@ -4,53 +4,41 @@ SimpleCov.start
 require 'pry'
 require 'minitest/autorun'
 require "./game_bacon_bits"
+#require './pig_player'
 
 
 
-# p = Pig.new
 
-# players = Array.new(2, "")
+# play = Player.new
+# play.start_up
 
-# until p.winner
-#   (0...players.length).map{|x|
+# p = Pig.new(play.maxscore, play.players.length)
+
+
+# while p.winner == false
+#   (0...play.players.length).map{|x|
+#   puts "\n#{play.players[x]}, it is your turn. You currently have #{p.scores[x]} points.\n"
 #   loop do
-#     puts "You rolled a #{p.turn(p.roll)}. Your score for the turn is now #{p.temp_score}."
+#     puts "You rolled a #{p.turn(p.die_roll)}. Your score for the turn is now #{p.temp_score}."
 #     if p.temp_score != 0
 #       puts "Would you like to roll again?"
 #       if gets.chomp == "n"
 #         p.bank(x)
-#         puts "\nYour score is now #{p.scores[x]}.\n"
+#         puts "\nYour score is now #{p.scores[x]}.\n\n"
 #         sleep(1)
-#         "-------------------------------------------"
+#         puts "\n-----------------------------------------------\n"
 #         break
 #       end
 #     else
+#       puts "\n-----------------------------------------------\n"
 #       break
 #     end
 #   end
 #   }
 # end
 
-
-# while winner == false  
-# (0...players.length).map{|x| loop do
-#   p.turn(players.index[x])
-#   puts "You rolled a #{roll}. Your score
-# for the turn is #{@turn_score}. Would you like
-# to roll again?"
-#   if gets.chomp == "n"
-#     p.bank(players.index[x])
-#   else
-
-# end
-
 # puts "\n\nFinal Scoreboard:\n"
 # (0...players.length).map {|x| puts "#{players[x]}: #{@scores[x]}"}
-
-
-  
-
-
 
 class PigGameTests < MiniTest::Test
   def test_pig_knows_max_score
