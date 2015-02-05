@@ -25,37 +25,38 @@ end
 class Pig < Game
   attr_reader :temp_score, :roll
 
-  def initialize maxscore=nil, players=2
+  def initialize 
     super
     @temp_score = 0
-    
   end
 
-
   def turn roll
-      # roll = die_roll
       unless roll == 1
         @temp_score += roll
         roll
-#         puts "You rolled a #{roll}. 
-# Your score for the turn is #{@temp_score}. Would
-# you like to roll again?(y/n?)\n"
-        # if gets.chomp == "n"
-        #    @scores[player_num] += @temp_score
-        #    @temp_score = 0
       else
         @temp_score = 0
         1
-#       puts "Sorry! You rolled a 1 and lost your points!
-# Your score is still #{@scores[player_num]}.\n"
       end
   end
 
   def bank player_num = 0
       @scores[player_num] += @temp_score
-      #puts "Your score is now #{@scores[player_num]}."
       @temp_score = 0
   end
+end
 
- 
+class Hog < Game
+  def initialize 
+    super
+    @dice_holder = []
+    @temp_score = 0
+  end
+
+  def turn roll
+    roll.times do |x|
+      @dice_holder << @die_roll
+    end
+    @dice_holder
+  end
 end

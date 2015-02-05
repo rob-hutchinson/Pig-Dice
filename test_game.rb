@@ -4,7 +4,7 @@ SimpleCov.start
 require 'pry'
 require 'minitest/autorun'
 require "./game_bacon_bits"
-#require './pig_player'
+require './pig_player'
 
 
 
@@ -19,7 +19,7 @@ require "./game_bacon_bits"
 #   (0...play.players.length).map{|x|
 #   puts "\n#{play.players[x]}, it is your turn. You currently have #{p.scores[x]} points.\n"
 #   loop do
-#     puts "You rolled a #{p.turn(p.die_roll)}. Your score for the turn is now #{p.temp_score}."
+#     puts "You rolled #{p.turn(p.die_roll)}. Your score for the turn is now #{p.temp_score}."
 #     if p.temp_score != 0
 #       puts "Would you like to roll again?"
 #       if gets.chomp == "n"
@@ -41,14 +41,18 @@ require "./game_bacon_bits"
 # (0...players.length).map {|x| puts "#{players[x]}: #{@scores[x]}"}
 
 class PigGameTests < MiniTest::Test
-  def test_pig_knows_max_score
+  def test_game_knows_max_score
     p = Pig.new
+    h = Hog.new
     assert_equal p.maxscore, 10
+    assert_equal h.maxscore, 10
   end
 
-  def test_pig_can_roll_dice
+  def test_game_can_roll_dice
     p = Pig.new 
+    h = Hog.new
     assert (1..6).include?(p.die_roll)
+    assert (1..6).include?(h.die_roll)
   end
 
   def test_non_ones_give_points
@@ -75,4 +79,13 @@ class PigGameTests < MiniTest::Test
     p.bank
     assert p.winner
   end
+end
+
+class HogGameTests < MiniTest::Test
+  def test_hog_can_roll_many_dice
+    h = Hog.new
+    assert_equal h.turn(3).length, 3
+  end
+
+  
 end
