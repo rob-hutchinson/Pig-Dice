@@ -25,7 +25,7 @@ end
 class Pig < Game
   attr_reader :temp_score, :roll
 
-  def initialize 
+  def initialize maxscore=nil, players=2
     super
     @temp_score = 0
   end
@@ -40,14 +40,14 @@ class Pig < Game
       end
   end
 
-  def bank player_num = 0
+  def bank player_num=0
       @scores[player_num] += @temp_score
       @temp_score = 0
   end
 end
 
 class Hog < Game
-  def initialize 
+  def initialize maxscore=nil, players=2
     super
     @dice_holder = []
     @temp_score = 0
