@@ -10,7 +10,7 @@ puts "\n\nWelcome to Baconator! Please help me set up your game.\n"
 puts "How many players do you have?"
 gets.chomp.to_i.times do 
   puts "\nPlease enter a player name:\n"
-  play.name(get.chomp.downcase.capitalize)
+  play.name(gets.chomp.downcase.capitalize)
 end
 
 puts "\nWhat score would you like to play to?\n"
