@@ -84,4 +84,13 @@ class HogGameTests < MiniTest::Test
       assert h.scores[0]>0
     end
     
+end
+
+class PlayerTests < MiniTest::Test
+  def test_players_get_names
+    play = Player.new
+    play.name("Sam")
+    assert play.players.length == 1
+    assert_equal play.players[0], "Sam"
   end
+end

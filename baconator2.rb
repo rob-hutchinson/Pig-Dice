@@ -3,7 +3,18 @@ require './pig_player'
 require './game_bacon_bits'
 
 play = Player.new
-play.start_up
+
+
+puts "\n\nWelcome to Baconator! Please help me set up your game.\n"
+
+puts "How many players do you have?"
+gets.chomp.to_i.times do 
+  puts "\nPlease enter a player name:\n"
+  play.name(get.chomp.downcase.capitalize)
+end
+
+puts "\nWhat score would you like to play to?\n"
+maxscore = gets.chomp.to_i 
 
 puts "\nChoose mode"
 puts "1) Pig"
@@ -16,7 +27,7 @@ else
   game_class = Hog
 end
 
-p = game_class.new(play.maxscore, play.players.length)
+p = game_class.new(maxscore, play.players.length)
 
 
 while p.winner == false
