@@ -51,7 +51,6 @@ while p.winner == false
         puts "\nYour score is now #{p.scores[x]}.\n\n"
         sleep(1)
         puts "\n-----------------------------------------------\n"
-        binding.pry
         break
       end
     }
